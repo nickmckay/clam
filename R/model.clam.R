@@ -61,6 +61,13 @@
   
   if(storedat)
   {
+    if(exists("allchron",envir = .GlobalEnv)){
+    allchron <- get("allchron",envir = .GlobalEnv)
+    allchron <- append(allchron,chron)
+    allchron <<- chron
+    }else{
+      allchron <<- list(chron)
+    }
     chron <<- chron
     smp <<- smp
   }
